@@ -1,0 +1,48 @@
+{
+	"code":0,
+	"msg":"success",
+    "data": [
+        {
+            "cartId": "1",
+            "userId": "2020001",
+            "bookId": "1",
+            "price": "25.99",
+            "quantity": "10",
+			"book_info":{
+				"bookId": "1",
+				"categoryCode": "novel",
+				"bookName": "巴黎圣母院",
+				"isbn": "9787560575667",
+				"author": "[法]雨果 著 李玉民 译",
+				"press": "西安交通大学出版社",
+				"pubDate": "1/8/2015",
+				"image": "24170734-1_l_4.jpg",
+				"description": "北大西语系翻译家李玉民全译本，“世界十大名著”“世界十大爱情故事”之一，读过后，更懂爱",
+				"price": "37.80",
+				"stock": "100",
+				"createTime": "1/6/2020 20:12:00"
+			}
+        },
+        {
+            "cartId": "2",
+            "userId": "2020001",
+            "bookId": "2",
+            "price": "26.25",
+            "quantity": "5",
+			"book_info":{
+				    "bookId": "2",
+				    "categoryCode": "novel",
+				    "bookName": "失乐园",
+				    "isbn": "9787555257035",
+				    "author": "渡边淳一[著]  林少华[译]",
+				    "press": "青岛出版社",
+				    "pubDate": "1/11/2017",
+				    "image": "25182491-1_l_6.jpg",
+				    "description": "渡边淳一代表作，长期雄踞日本畅销书排行榜榜首，由黑木瞳、役所广司主演的电影引发“失乐园”热。此次的全新林少华译本，将带你体味不一样的渡边淳一，不一样的失乐园。",
+				    "price": "45.00",
+				    "stock": "100",
+				    "createTime": "1/6/2020 20:12:00"
+				}
+        }
+    ]
+}

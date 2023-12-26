@@ -1,0 +1,126 @@
+html {
+    background-color: #e7e7e7;
+    color: #444;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header,
+.footer {
+    background-color: #009688;
+    height: 60px;
+}
+
+.footer {
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    color: white;
+    width: 100%;
+}
+
+.logo a {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 60px;
+}
+
+.logo a:hover {
+    color: #ec7814;
+}
+
+.search-bar {
+    margin: 10px 0px;
+}
+
+.search-input {
+    width: 700px;
+    margin: 0px auto;
+}
+
+.search-input input {
+    width: 70%;
+    margin-right: 5%;
+    float: left;
+}
+
+.search-input button {
+    width: 25%;
+}
+
+.book-card {
+    width: 150px;
+    background-color: white;
+    margin: 10px 19px;
+    padding: 18px;
+    border-radius: 10px;
+    float: left;
+}
+
+.book-card .name,
+.book-card .author,
+.book-card .price {
+    margin-top: 3px;
+}
+
+.book-card a img {
+    text-align: center;
+    width: 150px;
+}
+
+.book-card p {
+    overflow: hidden;
+    height: 18px;
+    word-break: break-all;
+}
+
+.img-hover {
+    color: #ec7814;
+    text-decoration: underline;
+}
+
+.book-card .name a:hover {
+    color: #ec7814;
+    text-decoration: underline;
+}
+
+.book-card .author {
+    color: #aaa;
+}
+
+.book-card .price {
+    color: #c30;
+    font-weight: bold;
+}
+
+
+/* 登录注册表单 */
+.login-form {
+    background-color: white;
+    width: 350px;
+    padding: 20px 75px 20px 0px;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 12px 11px 2px 0 rgba(0, 0, 0, 0.42)
+}
+
+.login-box h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #393939;
+}
+
+.login-box .login-form a:hover {
+    color: #01AAED;
+    text-decoration: underline;
+}
+
+.breadcrumb {
+    margin: 10px 50px;
+}
+

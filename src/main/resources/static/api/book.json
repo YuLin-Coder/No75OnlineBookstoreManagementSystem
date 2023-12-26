@@ -1,0 +1,186 @@
+{
+	"code": 0,
+	"msg": "success",
+	"count": 36,
+	"data": [{
+			"bookId": "1",
+			"categoryCode": "novel",
+			"bookName": "巴黎圣母院",
+			"isbn": "9787560575667",
+			"author": "[法]雨果 著 李玉民 译",
+			"press": "西安交通大学出版社",
+			"pubDate": "1/8/2015",
+			"image": "24170734-1_l_4.jpg",
+			"description": "北大西语系翻译家李玉民全译本，“世界十大名著”“世界十大爱情故事”之一，读过后，更懂爱",
+			"price": "37.80",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "2",
+			"categoryCode": "novel",
+			"bookName": "失乐园",
+			"isbn": "9787555257035",
+			"author": "渡边淳一[著]  林少华[译]",
+			"press": "青岛出版社",
+			"pubDate": "1/11/2017",
+			"image": "25182491-1_l_6.jpg",
+			"description": "渡边淳一代表作，长期雄踞日本畅销书排行榜榜首，由黑木瞳、役所广司主演的电影引发“失乐园”热。此次的全新林少华译本，将带你体味不一样的渡边淳一，不一样的失乐园。",
+			"price": "45.00",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "3",
+			"categoryCode": "novel",
+			"bookName": "假面之夜+假面饭店+假面前夜",
+			"isbn": "25286485",
+			"author": "东野圭吾",
+			"press": "南海出版公司",
+			"pubDate": "1/6/2018",
+			"image": "25286485-1_l_2.jpg",
+			"description": "新系列新CP。富丽堂皇的五星级大酒店，各怀心事的客人。平静的表面下暗流汹涌。杀人凶手即将在此现身。新田尚美联手揭开假面。",
+			"price": "115.90",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "4",
+			"categoryCode": "novel",
+			"bookName": "布隆夫曼脱单历险记",
+			"isbn": "9787559431394",
+			"author": "[美]丹尼尔·华莱士 著 宁蒙 译 时代华语",
+			"press": "江苏凤凰文艺出版社",
+			"pubDate": "1/4/2019",
+			"image": "26916949-1_l_6.jpg",
+			"description": "为什么不结婚？为什么想恋爱却不主动？单身人士，可能是对自我和世界有着独特认知，对他们来说，脱单之旅，不止是一次成长冒险，更是与原生家庭的和解，与人类社会的碰撞。单身族群，比起伴侣，更需要的是找到自己。",
+			"price": "35.80",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "5",
+			"categoryCode": "novel",
+			"bookName": "光与影",
+			"isbn": "9787555269397",
+			"author": "渡边淳一",
+			"press": "青岛出版社",
+			"pubDate": "25/5/2018",
+			"image": "25283531-1_l_3.jpg",
+			"description": "渡边淳一文学的原点之作 日本文学奖直木奖获奖作品 关于命运和与人性 关于死亡与热爱 关于病痛与尊严 关于爱情与复仇",
+			"price": "32.00",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "6",
+			"categoryCode": "novel",
+			"bookName": "三体：全三册",
+			"isbn": "23579654",
+			"author": "刘慈欣",
+			"press": "重庆出版社",
+			"pubDate": "1/11/2010",
+			"image": "23579654-1_l_3.jpg",
+			"description": "刘慈欣代表作，亚洲首部“雨果奖”获奖作品！",
+			"price": "55.80",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "7",
+			"categoryCode": "novel",
+			"bookName": "鲛在水中央",
+			"isbn": "9787540490645",
+			"author": "孙频",
+			"press": "湖南文艺出版社",
+			"pubDate": "1/8/2017",
+			"image": "27855831-1_l_4.jpg",
+			"description": "阎连科、韩少功、苏童鼎力推荐。这个人世间，有谁不是在努力地活着。这是一本让你流着泪读完的书！那些孤独的、无奈的却又不向命运低头的人，都是生活的勇者。",
+			"price": "42.70",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "novel",
+				"categoryName": "小说"
+			}
+		},
+		{
+			"bookId": "8",
+			"categoryCode": "manage",
+			"bookName": "彼得·林奇点评版股票作手回忆录",
+			"isbn": "9787515303628",
+			"author": "[美]杰西·利弗莫尔",
+			"press": "中国青年出版社",
+			"pubDate": "1/5/2019",
+			"image": "27855149-1_l_3.jpg",
+			"description": " 利弗莫尔，从5元本金到1亿资本额，这是每代股神都难以忽略的股市传奇。《彼得林奇点评版股票作手回忆录》是由彼得林奇点评，凯恩斯作序的经典之作",
+			"price": "32.20",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "manage",
+				"categoryName": "经营"
+			}
+		},
+		{
+			"bookId": "9",
+			"categoryCode": "manage",
+			"bookName": "财务自由之路（全三册）",
+			"isbn": "26511903",
+			"author": "[德]博多·舍费尔",
+			"press": "现代出版社",
+			"pubDate": "20/2/2019",
+			"image": "26511903-1_l_2.jpg",
+			"description": "理念指导+操作技巧 助力投资新手、投资高手！",
+			"price": "121.10",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "manage",
+				"categoryName": "经营"
+			}
+		},
+		{
+			"bookId": "10",
+			"categoryCode": "manage",
+			"bookName": "稻盛和夫阿米巴经营经典套装（理论+实践）",
+			"isbn": "9787520202824",
+			"author": "[日]稻盛和夫",
+			"press": "中国大百科全书出版社",
+			"pubDate": "1/5/2018",
+			"image": "25288392-1_l_1.jpg",
+			"description": "日本经营之圣稻盛和夫亲笔撰写，首次全公开曾秘不外传的阿米巴经营要领！学习阿米巴经营的经典教材，畅销70万册",
+			"price": "74.70",
+			"stock": "100",
+			"createTime": "1/6/2020 20:12:00",
+			"category": {
+				"categoryCode": "manage",
+				"categoryName": "经营"
+			}
+		}
+	]
+}

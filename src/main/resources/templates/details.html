@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragment::head(~{::title},~{})">
+    <meta charset="utf-8">
+    <title>书籍详情</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/lib/layui/css/layui.css"/>
+    <script src="../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/public.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div th:replace="_fragment::header(null)"></div>
+<div class="layui-container">
+    <div class="breadcrumb">
+        <span class="layui-breadcrumb">
+            <a th:href="@{/index}">首页</a>
+            <a>书籍详情</a>
+            <a><cite>[[${book.bookName}]]</cite></a>
+        </span>
+    </div>
+    <div class="book-detail-box">
+        <img th:src="@{|/images/book_images/${book.image}|}" th:alt="${book.bookName}">
+        <div class="details-info">
+            <p class="name">
+                <b>[[${book.bookName}]]</b>
+                <span class="layui-badge layui-bg-green">[[${book.category.categoryName}]]</span>
+            </p>
+            <p class="desc">[[${book.description}]]</p>
+            <p class="isbn">
+                <b>ISBN：</b>
+                <span class="layui-badge-rim">[[${book.isbn}]]</span>
+            </p>
+            <p class="author">
+                <b>作者：</b>
+                <span class="layui-badge-rim">[[${book.author}]]</span>
+            </p>
+            <p class="press">
+                <b>出版社：</b>
+                <span class="layui-badge-rim">[[${book.press}]]</span>
+            </p>
+            <p class="pub_time">
+                <b>出版日期：</b>
+                <span class="layui-badge-rim">[[${#dates.format(book.pubDate,'yyyy-MM-dd')}]]</span>
+            </p>
+            <p class="stock">
+                <b>库存：</b>
+                <span class="layui-badge-rim">[[${book.stock}]]</span>
+            </p>
+            <p class="price">
+                <span class="layui-icon layui-icon-rmb" id="price">&nbsp;[[${book.price}]]</span>
+            </p>
+        </div>
+    </div>
+    <div class="btn">
+        合计：<span style="margin-right: 20px;" id="totalAccount">[[${book.price}]]</span>
+        <span>购买数量：</span>
+        <input type="number" id="quantity" th:min="${book.stock==0?'0':'1'}" th:max="${book.stock}" th:value="${book.stock==0?'0':'1'}" class="qty-input"
+               th:onchange="|check(this,${book.price})|"/>
+        <button type="button" class="layui-btn layui-btn-normal" id="buyNowBtn">立即购买</button>
+        <button type="button" class="layui-btn layui-btn-danger" id="addCartBtn">加入购物车</button>
+    </div>
+
+</div>
+<div th:replace="_fragment::footer"></div>
+</body>
+<link rel="stylesheet" type="text/css" th:href="@{/css/details.css}"/>
+<script th:src="@{/js/details.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/html" id="oder-popup-tpl">
+    <div class="oder-popup">
+        <div class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">收货人</label>
+                <div class="layui-input-block">
+                    <input type="text" name="consigneeName" required lay-verify="required" placeholder="请输入收货人姓名"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">收货地址</label>
+                <div class="layui-input-block">
+                    <textarea name="address" placeholder="请输入收货地址" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮政编号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="zip" required lay-verify="required" placeholder="请输入邮政编号"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机号码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="phoneNumber" required lay-verify="required" placeholder="请输入手机号码"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="order_submit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+</html>

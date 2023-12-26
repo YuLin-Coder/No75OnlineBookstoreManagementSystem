@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragment::head(~{::title},~{})">
+    <meta charset="utf-8">
+    <title>我的购物车</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/lib/layui/css/layui.css"/>
+    <script src="../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/public.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div th:replace="_fragment::header('cart')"></div>
+<div class="layui-container">
+    <div class="breadcrumb">
+        <span class="layui-breadcrumb">
+            <a th:href="@{/index}">首页</a>
+            <a><cite>我的购物车</cite></a>
+        </span>
+    </div>
+</div>
+<div class="cart-container">
+    <div class="layui-form">
+        <div class="cart">
+            <input type="checkbox" name="selectAll" title="全选" lay-skin="primary" lay-filter="selectAll">
+            <hr/>
+        </div>
+        <div id="shopping-carts"></div>
+    </div>
+    <div class="layui-form">
+        <button type="button" class="layui-btn layui-btn-normal" id="buyBtn">立即购买</button>
+        <button type="button" class="layui-btn layui-btn-danger" id="deleteSelectedBtn">删除选中</button>
+    </div>
+</div>
+<div th:replace="_fragment::footer"></div>
+</body>
+<link rel="stylesheet" type="text/css" th:href="@{/css/cart.css}"/>
+<script th:src="@{/js/cart.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/html" id="shopping-carts-tpl">
+    {{# layui.each(d,function(index,item){    }}
+    <div class="cart">
+        <input type="checkbox" name="cartId" value="{{item.cartId}}" c-bookId="{{item.bookId}}"
+               c-price="{{item.book_info.price}}" lay-skin="primary" lay-filter="selectOne">
+        <a href="/index/books/details/{{item.bookId}}"><img src="/images/book_images/{{item.book_info.image}}"
+                                                            alt="{{item.book_info.bookName}}"/></a>
+        <div class="cart-info">
+            <p><a href="/index/books/details/{{item.bookId}}">{{item.book_info.bookName}}</a></p>
+            <p>{{item.book_info.author}}&nbsp;/&nbsp;{{item.book_info.pubDate}}&nbsp;/&nbsp;{{item.book_info.press}}</p>
+            <p>¥&nbsp;{{item.book_info.price}}</p>
+            <p>购买数量：<input type="number" min="1" max="10" value="{{item.quantity}}" id="quantity-{{item.cartId}}"
+                           onchange="checkAndCalculate(this,'{{item.cartId}}','{{item.book_info.price}}')"/>
+                <span>&nbsp;(库存：{{item.book_info.stock}})</span>
+            </p>
+        </div>
+        <div class="cart-delete">
+            <p>¥<span id="total-{{item.cartId}}">{{ calculate(item.book_info.price,item.quantity) }}</span></p>
+            <button type="button" class="layui-btn layui-btn-xs" onclick="deleteByCartId('{{item.cartId}}')">删除</button>
+        </div>
+    </div>
+    {{#     });       }}
+</script>
+</html>

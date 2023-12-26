@@ -1,0 +1,64 @@
+.cart-container{
+	width: 1000px;
+	margin: 30px auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+.cart-container .cart{
+	position: relative;
+	margin:20px 25px;
+	background-color: white;
+}
+.cart-container .cart img{
+	margin:10px 20px;
+}
+.cart-container .cart .cart-info{
+	position: absolute;
+	margin-left: 220px;
+	top: 0px;
+	padding: 10px;
+	width: 550px;
+}
+.cart-container .cart .cart-info p{
+	margin: 10px 0px;
+}
+.cart-container .cart .cart-info p a:hover{
+	color: #ec7814;
+	text-decoration: underline;
+}
+.cart-container .cart .cart-info p:nth-child(2),
+.cart-container .cart .cart-info p:nth-child(3){
+	color: #aaa;
+}
+	
+.cart-container .cart .cart-info p:nth-child(4){
+	padding-top: 15px;
+}
+.cart-container .cart .cart-info p:nth-child(4) input{
+	width: 100px;
+	padding: 5px;
+}
+
+.cart-container .cart .cart-delete{
+	position: absolute;
+	right: 50px;
+	top: 60px;
+	padding: 10px;
+}
+.cart-container .cart .cart-delete p{
+	margin-bottom: 10px;
+}
+.cart-container .cart .cart-delete button{
+	float: right;
+}
+.cart-container .layui-form:nth-child(2){
+	text-align: right;
+}
+.cart-container .layui-form:nth-child(2) button{
+	width: 150px;
+}
+.cart-tip{
+	text-align: center;
+	font-size: x-large;
+}

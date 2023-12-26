@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hut.bookshop.dao.BookDisplayMapper">
+  <resultMap id="BaseResultMap" type="edu.hut.bookshop.pojo.Book">
+    <id column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="category_code" jdbcType="VARCHAR" property="categoryCode" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="press" jdbcType="VARCHAR" property="press" />
+    <result column="pub_date" jdbcType="DATE" property="pubDate" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <association property="category" column="category_code" javaType="edu.hut.bookshop.pojo.Category"
+    select="edu.hut.bookshop.dao.CategoryMapper.selectByByCategoryCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    book_id, category_code, book_name, isbn, author, press, pub_date, image, description, 
+    price, stock, create_time
+  </sql>
+  <select id="fuzzyQueryByBookName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book
+    where book_name like concat('%',#{bookName,jdbcType=VARCHAR},'%')
+  </select>
+</mapper>

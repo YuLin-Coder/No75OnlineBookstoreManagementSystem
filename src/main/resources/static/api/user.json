@@ -1,0 +1,43 @@
+{
+    "code":0,
+    "msg":"success",
+    "count":6,
+    "data": [
+        {
+            "userId": 1,
+            "userName": "教育",
+			"email":"986717254@qq.com",
+			"joinTime":"1/6/2020 20:12:00"
+        },
+        {
+            "userId": 1,
+            "userName": "教育",
+        	"email":"986717254@qq.com",
+        	"joinTime":"1/6/2020 20:12:00"
+        },
+        {
+            "userId": 1,
+            "userName": "教育",
+        	"email":"986717254@qq.com",
+        	"joinTime":"1/6/2020 20:12:00"
+        },
+        {
+            "userId": 1,
+            "userName": "教育",
+        	"email":"986717254@qq.com",
+        	"joinTime":"1/6/2020 20:12:00"
+        },
+        {
+            "userId": 1,
+            "userName": "教育",
+        	"email":"986717254@qq.com",
+        	"joinTime":"1/6/2020 20:12:00"
+        },
+        {
+            "userId": 1,
+            "userName": "教育",
+        	"email":"986717254@qq.com",
+        	"joinTime":"1/6/2020 20:12:00"
+        }
+    ]
+}

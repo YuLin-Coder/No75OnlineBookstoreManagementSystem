@@ -1,0 +1,28 @@
+server:
+  servlet:
+    session:
+      timeout: PT2H #session过期时间 2个小时
+
+spring:
+  profiles:
+    active: gzc
+
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  #json日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+#指定mapper文件的位置
+mybatis:
+  mapper-locations: classpath:mappers/*.xml,classpath:mappers/customize/*.xml
+
+#mybatis-pageHelper分页工具
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

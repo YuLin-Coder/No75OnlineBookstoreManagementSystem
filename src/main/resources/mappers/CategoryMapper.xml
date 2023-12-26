@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hut.bookshop.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="edu.hut.bookshop.pojo.Category">
+    <id column="category_code" jdbcType="VARCHAR" property="categoryCode" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    category_code, category_name
+  </sql>
+  <select id="selectByByCategoryCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where category_code = #{categoryCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByByCategoryCode" parameterType="java.lang.String">
+    delete from category
+    where category_code = #{categoryCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="edu.hut.bookshop.pojo.Category">
+    insert into category (category_code, category_name)
+    values (#{categoryCode,jdbcType=VARCHAR}, #{categoryName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByCategoryCode" parameterType="edu.hut.bookshop.pojo.Category">
+    update category
+    set category_name = #{categoryName,jdbcType=VARCHAR}
+    where category_code = #{categoryCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from category
+  </select>
+</mapper>

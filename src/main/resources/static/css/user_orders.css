@@ -1,0 +1,59 @@
+.order-page {
+	background-color: white;
+	padding: 20px 10px;
+	margin: 10px;
+	border-radius: 15px;
+}
+.order-page h2{
+	text-align: center;
+}
+
+.order-item-box .order-item {
+	position: relative;
+	margin: 5px 25px;
+	background-color: white;
+}
+
+.order-item-box .order-item img {
+	margin: 10px 20px;
+	width: 100px;
+}
+
+.order-item-box .order-item .order-item-info {
+	position: absolute;
+	margin-left: 150px;
+	top: 0px;
+	padding: 10px;
+	width: 550px;
+}
+
+.order-item-box .order-item .order-item-info p {
+	margin: 10px 0px;
+}
+
+.order-item-box .order-item .order-item-info p a:hover {
+	color: #ec7814;
+	text-decoration: underline;
+}
+
+.order-item-box .order-item .order-item-info p:nth-child(2),
+.order-item-box .order-item .order-item-info p:nth-child(3) {
+	color: #aaa;
+}
+
+.order-item-box .order-item .order-item-total {
+	position: absolute;
+	right: 0px;
+	top: 15px;
+	padding: 10px;
+}
+
+.order-item-box .order-item .order-item-total p {
+	margin-bottom: 10px;
+}
+
+
+.order-item-tip {
+	text-align: center;
+	font-size: x-large;
+}

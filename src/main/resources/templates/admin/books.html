@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="_adminfragment::head(~{::title},~{})">
+		<meta charset="utf-8">
+		<title>书籍管理</title>
+		<link rel="stylesheet" type="text/css" href="../../static/lib/layui/css/layui.css" />
+		<script src="../../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+		<div th:replace="_adminfragment::header"></div>
+		<div th:replace="_adminfragment::side('book')"></div>
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 20px;">
+				<div class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">书籍ID</label>
+							<div class="layui-input-inline">
+								<input type="text" name="bookId" autocomplete="off" placeholder="请输入书籍编号" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">书名</label>
+							<div class="layui-input-inline">
+								<input type="text" name="bookName" autocomplete="off" placeholder="请输入书籍名称" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">ISBN</label>
+							<div class="layui-input-inline">
+								<input type="text" name="isbn" autocomplete="off" placeholder="请输入ISBN码" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<button class="layui-btn" lay-submit lay-filter="search_btn">查询</button>
+						</div>
+					</div>
+				</div>
+
+				<table class="layui-hide" id="book_tb" lay-filter="book_tb"></table>
+
+				<script type="text/html" id="barDemo">
+					<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+					<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+				</script>
+			</div>
+		</div>
+		<div th:replace="_adminfragment::footer"></div>
+	</div>
+
+	</body>
+	<script th:src="@{/js/admin/book.js}" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="book_form_tmpl">
+		<form action="" class="layui-form" lay-filter="book-form" style="margin-right:30px;margin-top: 20px;">
+		<div class="layui-form-item">
+			<label class="layui-form-label">书籍ID</label>
+			<div class="layui-input-block">
+				<input type="text" id="bookId" name="bookId" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">分类</label>
+				<div class="layui-input-block">
+					<select name="categoryCode" id="categoryCode">
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">书名</label>
+				<div class="layui-input-block">
+					<input type="text" id="bookName" name="bookName" required lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text">
+				<label class="layui-form-label">书籍描述</label>
+				<div class="layui-input-block">
+					<textarea name="description" placeholder="书籍简要描述" class="layui-textarea"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">ISBN</label>
+				<div class="layui-input-block">
+					<input type="text" id="isbn" name="isbn" required lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">出版社</label>
+				<div class="layui-input-block">
+					<input type="text" id="press" name="press" required lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">作者</label>
+				<div class="layui-input-block">
+					<input type="text" id="author" name="author" required lay-verify="required" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">出版日期</label>
+				<div class="layui-input-block">
+					<input type="text" id="pubDate" name="pubDate" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">价格</label>
+				<div class="layui-input-block">
+					<input type="number" min="0" id="price" name="price" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">库存</label>
+				<div class="layui-input-block">
+					<input type="number" min="0" id="stock" name="stock" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+		</form>
+	</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragment::head(~{::title},~{})">
+    <meta charset="utf-8">
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/lib/layui/css/layui.css"/>
+    <script src="../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/public.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div th:replace="_fragment::header(null)"></div>
+<div class="layui-container">
+    <div class="breadcrumb">
+        <span class="layui-breadcrumb">
+            <a th:href="@{/index}">首页</a>
+            <a><cite>我的订单</cite></a>
+        </span>
+    </div>
+</div>
+<div class="layui-container">
+    <div class="order-page">
+        <h2>我的订单</h2>
+        <hr/>
+        <table class="layui-hide" id="order_tb" lay-filter="order_tb"></table>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 40px;">
+            <legend style="text-align: center;">订单明细</legend>
+            <div class="layui-field-box" id="order-items"></div>
+        </fieldset>
+        <script type="text/html" id="order_tb_bar">
+            <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除订单</a>
+        </script>
+    </div>
+</div>
+</body>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/user_orders.css}"/>
+<script th:src="@{/js/user_orders.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/html" id="order-item-tpl">
+    {{# layui.each(d,function(index,item){   }}
+    <div class="order-item-box">
+        <div class="order-item">
+            <a href="/index/books/details/{{item.bookId}}"><img src="/images/book_images/{{item.book_info.image}}"
+                                                                alt="{{item.book_info.bookName}}"/></a>
+            <div class="order-item-info">
+                <p><a href="/index/books/details/{{item.bookId}}">{{item.book_info.bookName}}</a></p>
+                <p>
+                    {{item.book_info.author}}&nbsp;/&nbsp;{{item.book_info.pubDate}}&nbsp;/&nbsp;{{item.book_info.press}}</p>
+                <p>¥&nbsp;{{item.price}}&nbsp;&nbsp;<del><em>¥&nbsp;{{item.book_info.price}}</em></del>
+                </p>
+            </div>
+            <div class="order-item-total">
+                <p>购买数量：{{item.quantity}}</p>
+                <p>合计：¥<span>{{ calculate(item.price,item.quantity) }}</span></p>
+            </div>
+        </div>
+    </div>
+    {{#   }); }}
+</script>
+</html>

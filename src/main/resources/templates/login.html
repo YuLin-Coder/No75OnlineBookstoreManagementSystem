@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragment::head(~{::title},~{})">
+    <meta charset="utf-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="../static/lib/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css"/>
+    <script src="../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div th:replace="_fragment::header(null)"></div>
+<div class="login-box" style="margin: 150px 0px;">
+    <h1>用户登录</h1>
+    <div class="login-form">
+        <div class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-username" style="font-size: 25px;"></i></label>
+                <div class="layui-input-block">
+                    <input type="text" id="userName" name="userName" required lay-verify="required" placeholder="请输入用户名"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-key"
+                                                   style="font-size: 25px;"></i></label>
+
+                <div class="layui-input-block">
+                    <input type="password" id="password" name="password" required lay-verify="required"
+                           placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="login-btn" style="width: 100%;">立即登录</button>
+                    <p style="margin-top: 10px;float: left;"><a th:href="@{/register}">前往注册</a></p>
+                    <p style="margin-top: 10px;float: right;"><a th:href="@{/admin/login}">后台登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    layui.use(['form', 'element', 'jquery','layer'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            layer = layui.layer,
+            element = layui.element;
+
+        //监听提交
+        form.on('submit(login-btn)', function (data) {
+            $.ajax({
+                url: '/user/login',
+                type: 'post',
+                data: JSON.stringify(data.field),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code != 0) {
+                        return layer.msg(res.msg, {icon: 2,time: 1500});
+                    }
+                    layer.msg("登录成功", {icon: 1, time: 1300}, function () {
+                        window.location.href = res.data;
+                    });
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hut.bookshop.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="edu.hut.bookshop.pojo.Order">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="consignee_name" jdbcType="VARCHAR" property="consigneeName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="zip" jdbcType="VARCHAR" property="zip" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <association property="user_info" javaType="edu.hut.bookshop.pojo.User" column="user_id"
+                 select="edu.hut.bookshop.dao.UserMapper.selectByUserId" />
+    <collection property="orderItems" ofType="edu.hut.bookshop.pojo.OrderItem" column="order_id"
+                select="edu.hut.bookshop.dao.OrderItemMapper.selectByOrderId"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, user_id, consignee_name, address, zip, phone_number, status, create_time
+  </sql>
+  <select id="selectByOrderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from orders
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByOrderId" parameterType="java.lang.Integer">
+    delete from orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <!--设置主键回填-->
+  <insert id="insert" parameterType="edu.hut.bookshop.pojo.Order"
+        keyProperty="orderId" useGeneratedKeys="true">
+    insert into orders (user_id, consignee_name,
+      address, zip, phone_number)
+    values (#{userId,jdbcType=INTEGER}, #{consigneeName,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByOrderId" parameterType="edu.hut.bookshop.pojo.Order">
+    update orders
+    <set>
+      <if test="consigneeName != null">
+        consignee_name = #{consigneeName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        zip = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from orders
+  </select>
+
+  <select id="searchOrders" resultMap="BaseResultMap" parameterType="edu.hut.bookshop.pojo.Order">
+    select
+    <include refid="Base_Column_List" />
+    from orders
+    <where>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER}
+      </if>
+      <if test="consigneeName != null">
+      and  consignee_name = #{consigneeName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>

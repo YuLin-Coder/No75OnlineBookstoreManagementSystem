@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+
+#配置数据库和数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/no75_bookshop?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  #关闭thymeleaf的缓存
+  thymeleaf:
+    cache: false
+    mode: HTML
+  #热部署
+  devtools:
+    restart:
+      enabled: true
+
+#sql日志打印配置
+logging:
+  level:
+    edu:
+      hut:
+        bookshop:
+          dao: debug

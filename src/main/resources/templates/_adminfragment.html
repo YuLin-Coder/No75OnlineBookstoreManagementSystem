@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,style)">
+    <meta charset="utf-8">
+    <title th:replace="${title}">网上购书系统后台管理</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/layui/css/layui.css}"/>
+    <script th:src="@{/lib/layui/layui.js}" type="text/javascript" charset="utf-8"></script>
+    <style th:replace="${style}"></style>
+</head>
+<body>
+<div class="layui-header" th:fragment="header">
+    <div class="layui-logo">网上购书系统后台管理</div>
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item"><a th:href="@{/}">回到首页</a></li>
+        <li class="layui-nav-item">
+            <a href="javascript:;" th:if="${session.admin}">
+                [[${session.admin.adminName}]]
+            </a>
+        </li>
+        <li class="layui-nav-item"><a th:href="@{/admin/logout}">退了</a></li>
+    </ul>
+</div>
+
+<div class="layui-side layui-bg-black" th:fragment="side(pageName)">
+    <div class="layui-side-scroll">
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a class="" href="javascript:;">书籍管理</a>
+                <dl class="layui-nav-child">
+                    <dd class="" th:classappend="${pageName=='book'?'layui-this':''}"><a
+                            th:href="@{/admin/book_manage}">书籍列表</a></dd>
+                    <dd class="" th:classappend="${pageName=='category'?'layui-this':''}"><a
+                            th:href="@{/admin/category_manage}">分类管理</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item" th:classappend="${pageName=='order'?'layui-this':''}">
+                <a th:href="@{/admin/order_manage}">订单管理</a>
+                </dl>
+            </li>
+            <li class="layui-nav-item" th:classappend="${pageName=='user'?'layui-this':''}"><a
+                    th:href="@{/admin/user_manage}">用户管理</a></li>
+            <li class="layui-nav-item" th:classappend="${pageName=='addBook'?'layui-this':''}"><a
+                    th:href="@{/admin/add_book}">上架书籍</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="layui-footer" th:fragment="footer">
+    © 2020
+</div>
+
+</body>
+</html>
+</html>

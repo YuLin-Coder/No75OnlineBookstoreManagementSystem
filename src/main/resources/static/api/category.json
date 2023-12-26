@@ -1,0 +1,31 @@
+{
+    "code":0,
+    "msg":"success",
+    "count":6,
+    "data": [
+        {
+            "categoryCode": "edu",
+            "categoryName": "教育"
+        },
+        {
+            "categoryCode": "life",
+            "categoryName": "生活"
+        },
+        {
+            "categoryCode": "manage",
+            "categoryName": "经营"
+        },
+        {
+            "categoryCode": "novel",
+            "categoryName": "小说"
+        },
+        {
+            "categoryCode": "sheke",
+            "categoryName": "社科"
+        },
+        {
+            "categoryCode": "wenyi",
+            "categoryName": "文艺"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+.book-detail-box{
+	position: relative;
+	background-color: white;
+	border-radius: 15px;
+	padding: 20px;
+	margin: 20px 50px;
+	height: 250px;
+}
+.book-detail-box img{
+	width: 250px;
+}
+.book-detail-box .details-info{
+	position: absolute;
+	/* background-color: #009688; */
+	top:0px;
+	right: 100px;
+	padding: 25px 50px;
+	width: 550px;
+}
+.book-detail-box .details-info p{
+	margin: 5px;
+}
+.book-detail-box .details-info .name{
+	font-size: 20px;
+	/* color: #01AAED; */
+	/*font-style: oblique;*/
+}
+.book-detail-box .details-info .desc{
+	color: #aaa;
+}
+.book-detail-box .details-info .price{
+	color: red;
+	font-weight: bold;
+}
+
+.layui-container .btn{
+	margin: 0px 50px;
+	float: right;
+}
+.layui-container .btn .qty-input{
+	padding: 5px;
+	margin-right: 20px;
+}
+
+
+.footer{
+	bottom: 0px;
+	position: fixed;
+}

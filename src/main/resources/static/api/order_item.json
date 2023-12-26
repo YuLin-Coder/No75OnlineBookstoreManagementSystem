@@ -1,0 +1,28 @@
+{
+	"code":0,
+	"msg":"success",
+	"count":3,
+    "data": [
+        {
+            "orderItemId": "1",
+            "orderId": "1",
+            "bookId": "1",
+            "price": "28.60",
+            "quantity": "10"
+        },
+        {
+            "orderItemId": "2",
+            "orderId": "1",
+            "bookId": "2",
+            "price": "23.40",
+            "quantity": "5"
+        },
+        {
+            "orderItemId": "3",
+            "orderId": "2",
+            "bookId": "3",
+            "price": "12.50",
+            "quantity": "1"
+        }
+    ]
+}

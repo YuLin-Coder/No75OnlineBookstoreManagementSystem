@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragment::head(~{::title},~{})">
+    <meta charset="utf-8">
+    <title>网上购书系统</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/lib/layui/css/layui.css"/>
+    <script src="../static/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class="header" th:replace="_fragment::header(null)">
+    <div class="layui-container">
+        <div class="logo" style="float: left;">
+            网上购书系统
+        </div>
+        <ul class="layui-nav" style="float: right;">
+            <li class="layui-nav-item">
+                <a href="/xx/xxx?userId=xxx">购物车</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="//t.cn/RCzsdCq" class="layui-nav-img">我
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">修改信息</a></dd>
+                    <dd><a href="javascript:;">个人订单</a></dd>
+                    <dd><a href="javascript:;">退了</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <!-- <ul class="layui-nav" style="float: right;">
+                <li class="layui-nav-item">
+                    <a href="">登录</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="">注册</a>
+                </li>
+            </ul> -->
+    </div>
+</div>
+<!-- 搜索栏 -->
+<div class="search-bar">
+    <div class="layui-container">
+        <div class="search-input">
+            <input type="text" id="keyword-input" name="keyword" placeholder="输入搜索内容" autocomplete="off"
+                   class="layui-input">
+            <button type="button" id="search-btn" class="layui-btn">搜索</button>
+        </div>
+    </div>
+    <hr/>
+</div>
+<div class="layui-container">
+    <div class="layui-tab layui-tab-brief" lay-filter="categoryTabBrief">
+        <ul class="layui-tab-title" style="text-align: center;" id="category_tag">
+            <li lay-id="search">搜索结果</li>
+            <li class="layui-this">全部</li>
+        </ul>
+        <div class="layui-tab-content" id="content" style="height: 520px;"></div>
+    </div>
+    <div class="page-util" id="page-util" style="text-align: center;"></div>
+</div>
+<div class="footer" th:replace="_fragment::footer">
+    &copy; 2020
+</div>
+</body>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+<script type="text/html" id="book-card-tpl">
+    {{# layui.each(d,function(index,item){   }}
+    <div class="book-card">
+        <a href="/index/books/details/{{item.bookId}}"><img src="/images/book_images/{{item.image}}"
+                                                            alt="{{item.bookName}}"/></a>
+        <p class="name">
+            <a href="/index/books/details/{{item.bookId}}" title="{{item.description}}">{{item.bookName}}</a>
+        </p>
+        <p class="author" title="{{item.author}}">{{item.author}}</p>
+        <p class="price">
+            <span class="layui-icon layui-icon-rmb">&nbsp;{{item.price}}</span>
+        </p>
+    </div>
+    {{#    });    }}
+</script>
+</html>
